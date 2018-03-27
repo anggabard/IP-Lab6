@@ -5,6 +5,7 @@ import drivers.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Math.abs;
 import static org.hamcrest.CoreMatchers.is;
 
 
@@ -13,20 +14,20 @@ public class AplicatieTest {
     private Aplicatie aplicatie = new Aplicatie();
 
     @Test
-    public void testOrdoneaza_daca_ordinea_e_gresita() {
+    public void testSortare_daca_ordinea_e_gresita() {
         ArrayList<Produs> listaProduse = new ArrayList<Produs>();
         Random random = new Random();
 
         for (int i = 0; i < 15; i ++) {
-            int pret = random.nextInt() % 15;
+            int pret = abs(random.nextInt()) % 15;
             Produs produs = new Produs(pret, "Produsul " + pret);
             listaProduse.add(produs);
         }
 
-        listaProduse = aplicatie.ordoneaza(listaProduse);
+        listaProduse = aplicatie.sortare(listaProduse);
 
         for (int i = 0; i < 15; i ++) {
-            Assert.assertThat(33, is(listaProduse.get(i).getPret()));
+            Assert.assertThat(i, is(listaProduse.get(i).getPret()));
         }
     }
 

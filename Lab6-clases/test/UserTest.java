@@ -19,7 +19,7 @@ public class UserTest {
         int pret = produs1.getPret();
 
 
-        produs1.aplicaReducere(15);
+        produs1.reducere(15);
 
         Assert.assertThat(produs1.getPret(), is(pret * 85/100));
 
